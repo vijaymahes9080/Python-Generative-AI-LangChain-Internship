@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Innovation Studio — Enterprise Portfolio Suite</title>
+  <meta name="description" content="AI Innovation Studio: Four independent production-grade AI internship applications featuring Pydantic extraction, ChromaDB RAG, autonomous agents, and streaming chatbots.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: #0f172a;
+      --bg-card-hover: #131d35;
+      --bg-surface: #1e293b;
+      --border-color: #1e293b;
+      --border-accent: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-cyan: #06b6d4;
+      --accent-cyan-light: #38bdf8;
+      --accent-violet: #8b5cf6;
+      --accent-violet-light: #a78bfa;
+      --accent-emerald: #10b981;
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Outfit', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 5rem;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    header {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-cyan) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1.1rem;
+      font-family: var(--font-display);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan-light);
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-emerald);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3rem;
+      text-align: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-violet-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent-cyan-light) 0%, var(--accent-violet-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Quick Launch Bar */
+    .quick-launch {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .quick-launch-text {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .quick-launch-text span {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .quick-launch-code {
+      font-family: var(--font-code);
+      background: var(--bg-dark);
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      color: var(--accent-cyan-light);
+      font-size: 0.88rem;
+    }
+
+    .btn-copy {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-accent);
+      padding: 0.45rem 0.95rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-copy:hover {
+      background: var(--accent-cyan);
+      color: #000;
+      border-color: var(--accent-cyan);
+    }
+
+    /* Projects Grid */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--card-color-1, var(--accent-cyan)), var(--card-color-2, var(--accent-violet)));
+      opacity: 0.8;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .task-tag {
+      font-family: var(--font-code);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-pill {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Architecture Flow Box */
+    .flow-box {
+      background: #060911;
+      border: 1px solid #1a2234;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      color: var(--accent-cyan-light);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .flow-arrow {
+      color: var(--text-muted);
+    }
+
+    .card-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cmd-snippet {
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      color: #e2e8f0;
+      background: #060911;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-launch {
+      background: linear-gradient(135deg, var(--accent-violet) 0%, #6366f1 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 7px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-launch:hover {
+      opacity: 0.9;
+    }
+
+    /* System Architecture Section */
+    .architecture-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2.5rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .architecture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .arch-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+
+    .arch-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .arch-text {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Setup & Verification Guide */
+    .guide-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2.5rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .guide-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .step-badge {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-code {
+      font-family: var(--font-code);
+      background: #060911;
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: var(--accent-cyan-light);
+      margin-top: 0.75rem;
+      word-break: break-all;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-cyan-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .quick-launch {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <a href="#" class="brand">
+        <div class="brand-logo">AI</div>
+        <div class="brand-title">AI Innovation Studio</div>
+      </a>
+      <div class="nav-links">
+        <a href="#projects">Applications</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#setup">Setup Guide</a>
+        <div class="status-badge">
+          <div class="status-dot"></div>
+          <span>All 4 Projects Verified</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-pill">⚡ Production AI Portfolio Suite • Python 3.12</div>
+      <h1>Enterprise AI Engineering &amp; <span>Innovation Studio</span></h1>
+      <p>
+        A comprehensive software portfolio containing four independently runnable AI systems: structured schema extraction, vector-grounded document RAG, sandboxed multi-tool autonomous agents, and full-stack streaming conversational UI.
+      </p>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Independent Tasks</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">31 / 31</div>
+          <div class="stat-label">Automated Unit Tests</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Pydantic v2</div>
+          <div class="stat-label">Strict Validation</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">ChromaDB</div>
+          <div class="stat-label">Dense Vector RAG</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Dual-Mode</div>
+          <div class="stat-label">Cloud + Offline Engine</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Launcher Bar -->
+    <div class="quick-launch">
+      <div class="quick-launch-text">
+        <span>🚀 Unified Test Runner:</span>
+        <span class="quick-launch-code">python launcher.py test</span>
+      </div>
+      <button class="btn-copy" onclick="copyText('python launcher.py test', this)">Copy Command</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <section id="projects">
+      <h2 class="section-title">Independent AI Applications</h2>
+      <p class="section-desc">Each application is fully self-contained with its own dependencies, unit test suite, and operational interface.</p>
+
+      <div class="projects-grid">
+        <!-- Task 1 -->
+        <div class="project-card" style="--card-color-1: #8b5cf6; --card-color-2: #38bdf8;">
+          <div>
+            <div class="card-header">
+              <span class="task-tag">TASK 01 • EXTRACTION</span>
+              <span class="status-badge" style="font-size:0.75rem;"><span class="status-dot"></span> 9/9 Tests Passed</span>
+            </div>
+            <h3 class="card-title">Structured LLM Prompt Pipeline &amp; JSON Extractor</h3>
+            <p class="card-desc">
+              Converts unstructured invoices and candidate resumes into validated, strictly typed JSON records. Features Pydantic v2 schemas, line-item reconciliation math, parameterized few-shot templates, and a bounded self-correction loop.
+            </p>
+            <div class="tech-pills">
+              <span class="tech-pill">Pydantic v2</span>
+              <span class="tech-pill">Few-Shot Learning</span>
+              <span class="tech-pill">Streamlit</span>
+              <span class="tech-pill">Google Gemini</span>
+              <span class="tech-pill">OpenAI</span>
+            </div>
+            <div class="flow-box">
+              <span>Raw Document</span>
+              <span class="flow-arrow">→</span>
+              <span>Prompt Engine</span>
+              <span class="flow-arrow">→</span>
+              <span>Pydantic v2</span>
+              <span class="flow-arrow">→</span>
+              <span>Self-Correction</span>
+              <span class="flow-arrow">→</span>
+              <span>Validated JSON</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="cmd-snippet">streamlit run task1-json-extraction/app.py</span>
+            <button class="btn-copy" onclick="copyText('streamlit run task1-json-extraction/app.py', this)">Copy</button>
+          </div>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="project-card" style="--card-color-1: #06b6d4; --card-color-2: #8b5cf6;">
+          <div>
+            <div class="card-header">
+              <span class="task-tag">TASK 02 • VECTOR RAG</span>
+              <span class="status-badge" style="font-size:0.75rem;"><span class="status-dot"></span> 8/8 Tests Passed</span>
+            </div>
+            <h3 class="card-title">Document Q&amp;A Assistant with RAG &amp; Vector Embeddings</h3>
+            <p class="card-desc">
+              Context-grounded question answering over PDFs and TXT files using ChromaDB vector search and RecursiveCharacterTextSplitter. Enforces strict anti-hallucination guardrails and generates verifiable page-level citations.
+            </p>
+            <div class="tech-pills">
+              <span class="tech-pill">ChromaDB</span>
+              <span class="tech-pill">RecursiveTextSplitter</span>
+              <span class="tech-pill">Dense Embeddings</span>
+              <span class="tech-pill">PyPDF</span>
+              <span class="tech-pill">Streamlit</span>
+            </div>
+            <div class="flow-box">
+              <span>PDF / TXT</span>
+              <span class="flow-arrow">→</span>
+              <span>Recursive Chunk</span>
+              <span class="flow-arrow">→</span>
+              <span>ChromaDB</span>
+              <span class="flow-arrow">→</span>
+              <span>Grounded QA</span>
+              <span class="flow-arrow">→</span>
+              <span>Citations</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="cmd-snippet">streamlit run task2-document-assistant/app.py</span>
+            <button class="btn-copy" onclick="copyText('streamlit run task2-document-assistant/app.py', this)">Copy</button>
+          </div>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="project-card" style="--card-color-1: #10b981; --card-color-2: #06b6d4;">
+          <div>
+            <div class="card-header">
+              <span class="task-tag">TASK 03 • AUTONOMOUS AGENT</span>
+              <span class="status-badge" style="font-size:0.75rem;"><span class="status-dot"></span> 8/8 Tests Passed</span>
+            </div>
+            <h3 class="card-title">Multi-Tool Autonomous AI Agent</h3>
+            <p class="card-desc">
+              Console-based ReAct agent coordinating DuckDuckGo search, a restricted AST mathematical calculator (zero eval), and a sandboxed file reader with path-traversal prevention. Produces an auditable action-and-observation trace.
+            </p>
+            <div class="tech-pills">
+              <span class="tech-pill">ReAct Loop</span>
+              <span class="tech-pill">AST Safe Math</span>
+              <span class="tech-pill">Sandboxed File IO</span>
+              <span class="tech-pill">DuckDuckGo</span>
+              <span class="tech-pill">Rich CLI</span>
+            </div>
+            <div class="flow-box">
+              <span>Compound Prompt</span>
+              <span class="flow-arrow">→</span>
+              <span>ReAct Reason</span>
+              <span class="flow-arrow">→</span>
+              <span>Sandboxed Tools</span>
+              <span class="flow-arrow">→</span>
+              <span>Audit Trace</span>
+              <span class="flow-arrow">→</span>
+              <span>Synthesis</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="cmd-snippet">python task3-autonomous-agent/main.py</span>
+            <button class="btn-copy" onclick="copyText('python task3-autonomous-agent/main.py', this)">Copy</button>
+          </div>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="project-card" style="--card-color-1: #f59e0b; --card-color-2: #8b5cf6;">
+          <div>
+            <div class="card-header">
+              <span class="task-tag">TASK 04 • CONVERSATIONAL UI</span>
+              <span class="status-badge" style="font-size:0.75rem;"><span class="status-dot"></span> 6/6 Tests Passed</span>
+            </div>
+            <h3 class="card-title">Interactive Full-Stack AI Chatbot with Streamlit</h3>
+            <p class="card-desc">
+              Full-stack conversational application featuring real-time token streaming, session state history, customizable personas, and unified mode toggles integrating Task 2 (Document RAG) and Task 3 (Multi-Tool Agent).
+            </p>
+            <div class="tech-pills">
+              <span class="tech-pill">Token Streaming</span>
+              <span class="tech-pill">st.session_state</span>
+              <span class="tech-pill">Persona Steering</span>
+              <span class="tech-pill">RAG Bridge</span>
+              <span class="tech-pill">Agent Bridge</span>
+            </div>
+            <div class="flow-box">
+              <span>Chat Input</span>
+              <span class="flow-arrow">→</span>
+              <span>Persona Steering</span>
+              <span class="flow-arrow">→</span>
+              <span>Mode Dispatcher</span>
+              <span class="flow-arrow">→</span>
+              <span>Token Stream</span>
+              <span class="flow-arrow">→</span>
+              <span>History</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="cmd-snippet">streamlit run task4-ai-chat/app.py</span>
+            <button class="btn-copy" onclick="copyText('streamlit run task4-ai-chat/app.py', this)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="architecture-section">
+      <h2 class="section-title">System &amp; Security Architecture</h2>
+      <p class="section-desc">Engineered for fault-tolerance, zero-trust execution, and reproducible testing.</p>
+
+      <div class="architecture-grid">
+        <div class="arch-card">
+          <div class="arch-title">🛡️ Zero-Trust Tooling</div>
+          <div class="arch-text">The calculator parses Python's Abstract Syntax Tree (AST) directly; eval() and exec() are completely omitted. The file reader enforces canonical path containment, blocking any traversal outside the sandbox.</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-title">⚡ Dual-Mode Engine</div>
+          <div class="arch-text">All four tasks support live LLM providers (Google Gemini &amp; OpenAI) alongside internal deterministic engines. Tests and local review run 100% offline without requiring external API keys.</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-title">🔒 Grounded Citations</div>
+          <div class="arch-text">The RAG engine calculates cosine similarities and enforces strict refusal when queries lack documentary evidence. Unsupported statements are never manufactured or hallucinated.</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-title">🔄 Bounded Self-Correction</div>
+          <div class="arch-text">When unstructured inputs produce malformed JSON or schema mismatches, Pydantic v2 diagnostics are fed back into the extraction loop (max 2 retries) to self-repair records cleanly.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Setup Guide Section -->
+    <section id="setup" class="guide-section">
+      <h2 class="section-title">Installation &amp; Execution Guide</h2>
+      <p class="section-desc">Follow these quick steps to verify the entire portfolio suite locally.</p>
+
+      <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-badge">Step 1</div>
+          <div class="step-title">Run Health Check</div>
+          <p class="arch-text">Verify that Python 3.12 and all required dependencies are available.</p>
+          <div class="step-code">python launcher.py check</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">Step 2</div>
+          <div class="step-title">Execute All Unit Tests</div>
+          <p class="arch-text">Run the automated test runner across all 31 test cases in the suite.</p>
+          <div class="step-code">python launcher.py test</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">Step 3</div>
+          <div class="step-title">Launch Any Task</div>
+          <p class="arch-text">Launch individual applications using the launcher or direct commands.</p>
+          <div class="step-code">python launcher.py run -t task1</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>AI Innovation Studio • Four Independent AI Engineering Applications</div>
+      <div class="footer-links">
+        <a href="docs/architecture.md">Architecture Spec</a>
+        <a href="docs/installation.md">Installation Guide</a>
+        <a href="docs/test-report.md">Test Report</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function copyText(text, btnElement) {
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btnElement.innerText;
+        btnElement.innerText = "Copied!";
+        btnElement.style.background = "#10b981";
+        btnElement.style.color = "#000";
+        setTimeout(() => {
+          btnElement.innerText = original;
+          btnElement.style.background = "";
+          btnElement.style.color = "";
+        }, 1800);
+      });
+    }
+  </script>
+</body>
+</html>
