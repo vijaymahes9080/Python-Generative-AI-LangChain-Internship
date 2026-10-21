@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <!-- Light theme linear & radial gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="50%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f1f5f9" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f5f3ff" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ecfeff" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f0fdf4" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#fffbeb" />
+    </linearGradient>
+
+    <filter id="cardShadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#8b5cf6" flood-opacity="0.2" />
+    </filter>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-weight: 800; fill: #0f172a; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 500; fill: #64748b; font-size: 17px; }
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 700; fill: #0f172a; font-size: 18px; }
+    .card-tag { font-family: 'SF Mono', Consolas, Monaco, monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.05em; }
+    .card-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13.5px; fill: #475569; line-height: 1.5; }
+    .pill-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 600; font-size: 11px; fill: #334155; }
+    .stat-num { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 800; font-size: 20px; fill: #0f172a; }
+    .stat-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; fill: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.4">
+    <circle cx="200" cy="80" r="140" fill="#8b5cf6" opacity="0.05" />
+    <circle cx="1050" cy="120" r="180" fill="#06b6d4" opacity="0.05" />
+    <circle cx="600" cy="620" r="220" fill="#10b981" opacity="0.04" />
+  </g>
+
+  <!-- Header Section -->
+  <g transform="translate(60, 45)">
+    <!-- Brand Pill -->
+    <rect x="0" y="0" width="220" height="28" rx="14" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+    <circle cx="14" cy="14" r="5" fill="#10b981" />
+    <text x="28" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="11" fill="#475569" letter-spacing="0.05em">ENTERPRISE AI PORTFOLIO</text>
+
+    <!-- Main Title -->
+    <text x="0" y="68" class="title" font-size="36">AI INNOVATION STUDIO</text>
+    <text x="0" y="96" class="subtitle">Four Production-Ready AI Applications in Python 3.12 • Full-Stack • RAG • Autonomous Agents</text>
+
+    <!-- Top Right Stats Badges -->
+    <g transform="translate(760, 5)">
+      <rect x="0" y="0" width="320" height="72" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)" />
+      
+      <g transform="translate(25, 20)">
+        <text x="0" y="18" class="stat-num">4 / 4</text>
+        <text x="0" y="36" class="stat-label">PROJECTS</text>
+      </g>
+      <line x1="110" y1="14" x2="110" y2="58" stroke="#e2e8f0" stroke-width="1" />
+      <g transform="translate(130, 20)">
+        <text x="0" y="18" class="stat-num" fill="#10b981">31 / 31</text>
+        <text x="0" y="36" class="stat-label">TESTS PASSED</text>
+      </g>
+      <line x1="225" y1="14" x2="225" y2="58" stroke="#e2e8f0" stroke-width="1" />
+      <g transform="translate(245, 20)">
+        <text x="0" y="18" class="stat-num" fill="#8b5cf6">100%</text>
+        <text x="0" y="36" class="stat-label">OFFLINE PARITY</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 4 Project Showcase Cards (2x2 Grid) -->
+  <g transform="translate(60, 175)">
+    <!-- CARD 1: Task 1 JSON Extraction -->
+    <g transform="translate(0, 0)">
+      <rect width="525" height="205" rx="14" fill="url(#cardGrad1)" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)" />
+      <rect x="0" y="0" width="525" height="4" rx="2" fill="#8b5cf6" />
+      
+      <rect x="24" y="20" width="65" height="20" rx="4" fill="#ede9fe" />
+      <text x="32" y="34" class="card-tag" fill="#7c3aed">TASK 01</text>
+      
+      <text x="100" y="35" class="card-title">Structured LLM JSON Extractor</text>
+      <text x="24" y="70" class="card-body">Production data extraction pipeline converting messy invoice and resume text into</text>
+      <text x="24" y="90" class="card-body">strictly validated JSON records with line-item mathematical cross-validation.</text>
+      
+      <!-- Feature bullets -->
+      <text x="24" y="125" class="card-body" font-size="12" fill="#64748b">• Pydantic v2 schema validation &amp; bounded self-correction loop (max 2 retries)</text>
+      <text x="24" y="145" class="card-body" font-size="12" fill="#64748b">• Streamlit review workspace with live JSON tree, confidence scores &amp; download</text>
+      
+      <!-- Tech Pills -->
+      <g transform="translate(24, 165)">
+        <rect x="0" y="0" width="85" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="12" y="15" class="pill-text">Pydantic v2</text>
+
+        <rect x="95" y="0" width="75" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="106" y="15" class="pill-text">Few-Shot</text>
+
+        <rect x="180" y="0" width="75" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="191" y="15" class="pill-text">Streamlit</text>
+
+        <rect x="265" y="0" width="105" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="276" y="15" class="pill-text">Self-Correction</text>
+      </g>
+    </g>
+
+    <!-- CARD 2: Task 2 Document RAG -->
+    <g transform="translate(555, 0)">
+      <rect width="525" height="205" rx="14" fill="url(#cardGrad2)" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)" />
+      <rect x="0" y="0" width="525" height="4" rx="2" fill="#06b6d4" />
+      
+      <rect x="24" y="20" width="65" height="20" rx="4" fill="#cffafe" />
+      <text x="32" y="34" class="card-tag" fill="#0891b2">TASK 02</text>
+      
+      <text x="100" y="35" class="card-title">Document Q&amp;A Assistant with RAG</text>
+      <text x="24" y="70" class="card-body">Retrieval-Augmented Generation over PDF &amp; TXT documents with ChromaDB vector</text>
+      <text x="24" y="90" class="card-body">search, verifiable page-level citations, and strict anti-hallucination guardrails.</text>
+      
+      <text x="24" y="125" class="card-body" font-size="12" fill="#64748b">• RecursiveCharacterTextSplitter with chunk metadata tracking (filename, page)</text>
+      <text x="24" y="145" class="card-body" font-size="12" fill="#64748b">• Strict refusal fallback: 'I cannot find sufficient evidence in the uploaded documents'</text>
+      
+      <g transform="translate(24, 165)">
+        <rect x="0" y="0" width="85" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="12" y="15" class="pill-text">ChromaDB</text>
+
+        <rect x="95" y="0" width="85" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="106" y="15" class="pill-text">Dense RAG</text>
+
+        <rect x="190" y="0" width="65" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="201" y="15" class="pill-text">PyPDF</text>
+
+        <rect x="265" y="0" width="115" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="276" y="15" class="pill-text">Verified Citations</text>
+      </g>
+    </g>
+
+    <!-- CARD 3: Task 3 Autonomous Agent -->
+    <g transform="translate(0, 225)">
+      <rect width="525" height="205" rx="14" fill="url(#cardGrad3)" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)" />
+      <rect x="0" y="0" width="525" height="4" rx="2" fill="#10b981" />
+      
+      <rect x="24" y="20" width="65" height="20" rx="4" fill="#dcfce7" />
+      <text x="32" y="34" class="card-tag" fill="#15803d">TASK 03</text>
+      
+      <text x="100" y="35" class="card-title">Multi-Tool Autonomous AI Agent</text>
+      <text x="24" y="70" class="card-body">Controlled ReAct reasoning loop orchestrating DuckDuckGo search, a restricted AST</text>
+      <text x="24" y="90" class="card-body">calculator (zero eval), and a sandboxed file reader with path traversal prevention.</text>
+      
+      <text x="24" y="125" class="card-body" font-size="12" fill="#64748b">• Zero-trust security: pure AST math execution and canonical directory containment</text>
+      <text x="24" y="145" class="card-body" font-size="12" fill="#64748b">• Rich CLI runner displaying step-by-step audit tables with latency &amp; observations</text>
+      
+      <g transform="translate(24, 165)">
+        <rect x="0" y="0" width="85" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="12" y="15" class="pill-text">ReAct Loop</text>
+
+        <rect x="95" y="0" width="85" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="106" y="15" class="pill-text">AST Math</text>
+
+        <rect x="190" y="0" width="105" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="201" y="15" class="pill-text">Sandbox File IO</text>
+
+        <rect x="305" y="0" width="75" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="316" y="15" class="pill-text">Rich CLI</text>
+      </g>
+    </g>
+
+    <!-- CARD 4: Task 4 Streamlit Chatbot -->
+    <g transform="translate(555, 225)">
+      <rect width="525" height="205" rx="14" fill="url(#cardGrad4)" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)" />
+      <rect x="0" y="0" width="525" height="4" rx="2" fill="#f59e0b" />
+      
+      <rect x="24" y="20" width="65" height="20" rx="4" fill="#fef3c7" />
+      <text x="32" y="34" class="card-tag" fill="#b45309">TASK 04</text>
+      
+      <text x="100" y="35" class="card-title">Interactive Full-Stack AI Chatbot</text>
+      <text x="24" y="70" class="card-body">Streamlit conversational application featuring real-time token streaming, session state</text>
+      <text x="24" y="90" class="card-body">memory, dynamic persona steering, and unified mode toggles for RAG and Agent.</text>
+      
+      <text x="24" y="125" class="card-body" font-size="12" fill="#64748b">• Asynchronous generator yielding smooth token stream to st.chat_message</text>
+      <text x="24" y="145" class="card-body" font-size="12" fill="#64748b">• Cross-pipeline toggles: Direct LLM Chat • Document RAG (T2) • Tool Agent (T3)</text>
+      
+      <g transform="translate(24, 165)">
+        <rect x="0" y="0" width="105" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="12" y="15" class="pill-text">Token Streaming</text>
+
+        <rect x="115" y="0" width="85" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="126" y="15" class="pill-text">Session State</text>
+
+        <rect x="210" y="0" width="75" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="221" y="15" class="pill-text">Personas</text>
+
+        <rect x="295" y="0" width="105" height="22" rx="11" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+        <text x="306" y="15" class="pill-text">Unified Modes</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer Banner -->
+  <g transform="translate(60, 625)">
+    <text x="0" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8" font-weight="500">
+      Built with Python 3.12 • Pydantic v2 • ChromaDB • LangChain • Streamlit • Rich • Pytest
+    </text>
+    <text x="1080" y="16" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748b" font-weight="600">
+      github.com/vijaymahes9080/Python-Generative-AI-LangChain-Internship
+    </text>
+  </g>
+</svg>
