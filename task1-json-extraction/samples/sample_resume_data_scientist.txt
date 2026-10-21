@@ -1,0 +1,37 @@
+Dr. Elena Rostova
+Email: elena.rostova@datascience-hub.org | Phone: (617) 502-9931 | Cambridge, MA
+LinkedIn: https://linkedin.com/in/elena-rostova-phd | GitHub: https://github.com/erostova-ai
+
+SUMMARY:
+Lead AI & NLP Research Scientist with 6+ years designing advanced retrieval-augmented generation (RAG) architectures, dense vector representations, and semantic evaluation guardrails for healthcare and bio-informatics domains.
+
+EDUCATION:
+Massachusetts Institute of Technology (MIT)
+Ph.D. in Computational Cognitive Science & Machine Learning | 2016 - 2020
+Cornell University
+Bachelor of Science in Applied Mathematics & Statistics | 2012 - 2016 | GPA: 3.94 (Summa Cum Laude)
+
+SKILLS & EXPERTISE:
+- Programming: Python, R, C++, SQL
+- Deep Learning & NLP: PyTorch, HuggingFace Transformers, LangChain, SentenceTransformers, vLLM
+- Vector Stores & IR: ChromaDB, FAISS, Milvus, BM25 Hybrid Search, Cross-Encoders
+- Cloud & MLOps: MLflow, Ray, Docker, GCP Vertex AI, Triton Inference Server
+
+RESEARCH & PROFESSIONAL EXPERIENCE:
+BioGen AI Innovations | Boston, MA
+Lead Research Scientist (Generative AI) | September 2021 - Present
+- Spearheaded the design of a specialized biomedical RAG assistant indexing 4.5 million clinical trial publications.
+- Improved retrieval recall@5 by 38% utilizing domain-adapted dense embeddings and cross-encoder re-ranking.
+- Authored 3 peer-reviewed research papers accepted at NeurIPS and ACL workshops.
+
+DeepHealth Analytics | Cambridge, MA
+Senior NLP Scientist | June 2020 - August 2021
+- Built an automated entity-relationship extraction pipeline for unstructured clinical notes using transformer models.
+- Deployed real-time NER inference pipelines processing 200 documents/sec with ONNX runtime.
+
+PUBLICATIONS & PROJECTS:
+- MedRAG-Bench: Comprehensive benchmarking harness evaluating factual grounding and hallucination rates in medical question-answering systems. Tech: Python, ChromaDB, PyTorch.
+- SemanticChunker: Open-source text segmentation library that dynamically splits text along semantic proposition boundaries.
+
+CERTIFICATIONS:
+- Deep Learning Specialization (DeepLearning.AI / Coursera, 2020)

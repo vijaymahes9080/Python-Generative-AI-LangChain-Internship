@@ -1,0 +1,38 @@
+INVOICE
+================================================================================
+Invoice Number: INV-2026-9042
+Date: 2026-02-18
+Due Date: 2026-03-20
+Payment Terms: Net 30
+
+SUPPLIER:
+TechCorp Cloud Infrastructure LLC
+400 Silicon Parkway, Suite 800
+San Jose, CA 95110
+Tax ID: US-882910452
+Email: billing@techcorp-cloud.io
+
+CUSTOMER:
+Apex Health Informatics Inc.
+1200 Medical Center Drive
+Boston, MA 02115
+Email: ap@apexhealth.org
+
+LINE ITEMS:
+--------------------------------------------------------------------------------
+1. GPU Accelerated Compute Cluster (H100 Node - 160 hrs)
+   Quantity: 160.0 | Unit Price: $4.50 | Total: $720.00
+
+2. High-Throughput NVMe Block Storage (5TB)
+   Quantity: 5.0 | Unit Price: $65.00 | Total: $325.00
+
+3. Dedicated VPC Peering & Network Egress (TB)
+   Quantity: 8.0 | Unit Price: $25.00 | Total: $200.00
+
+--------------------------------------------------------------------------------
+Subtotal: $1,245.00
+Tax Rate: 6.25%
+Tax Amount: $77.81
+Total Amount Due: $1,322.81
+Currency: USD
+================================================================================

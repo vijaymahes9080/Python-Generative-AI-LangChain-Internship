@@ -1,0 +1,38 @@
+COMMERCIAL INVOICE
+================================================================================
+Invoice No: LOG-88319-X
+Issue Date: 2026-03-01
+Due Date: 2026-03-15
+Payment Terms: Net 15
+
+VENDOR:
+SwiftLogistics Freight Worldwide
+742 Terminal Road, Dock 14
+Newark, NJ 07114
+Tax ID: EIN-22-901458
+Email: dispatch-billing@swiftlogistics.com
+
+CLIENT:
+Global Retail Direct Ltd
+88 Commerce Boulevard
+Chicago, IL 60607
+Email: accounts-payable@globalretaildirect.com
+
+BILLABLE ITEMS:
+--------------------------------------------------------------------------------
+1. Expedited Air Freight Container Routing (JFK to ORD)
+   Quantity: 2.0 | Unit Price: $1,450.00 | Total: $2,900.00
+
+2. Temperature Controlled Cold-Chain Surcharge
+   Quantity: 2.0 | Unit Price: $220.00 | Total: $440.00
+
+3. Customs Clearance Brokerage & Documentation
+   Quantity: 1.0 | Unit Price: $350.00 | Total: $350.00
+
+--------------------------------------------------------------------------------
+Subtotal: $3,690.00
+Tax Rate: 0.00%
+Tax Amount: $0.00
+Total Amount Due: $3,690.00
+Currency: USD
+================================================================================

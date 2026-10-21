@@ -1,0 +1,36 @@
+Marcus Vance
+Email: marcus.vance.dev@gmail.com | Phone: (415) 890-4421 | Seattle, WA
+LinkedIn: https://linkedin.com/in/marcus-vance | GitHub: https://github.com/mvance-eng
+
+PROFESSIONAL SUMMARY:
+Senior Backend & AI Systems Engineer with 7+ years of experience architecting high-throughput distributed microservices, real-time asynchronous pipelines, and LLM-powered enterprise tooling. Passionate about API reliability, Pydantic data schemas, and developer productivity.
+
+EDUCATION:
+University of Washington, Seattle, WA
+Bachelor of Science in Computer Science | Graduated: June 2018 | GPA: 3.82
+
+TECHNICAL SKILLS:
+- Core Languages: Python, Go, TypeScript, SQL, Bash
+- Frameworks & Libraries: FastAPI, Pydantic v2, SQLAlchemy, LangChain, PyTorch, Streamlit
+- Data & Cloud Infrastructure: PostgreSQL, Redis, ChromaDB, Docker, Kubernetes, AWS (ECS, Lambda, S3)
+- Engineering Practices: Test-Driven Development (TDD), CI/CD Automation, REST & gRPC API Design
+
+PROFESSIONAL EXPERIENCE:
+Nexus Cloud Systems | Seattle, WA
+Senior Software Engineer (AI Platforms) | March 2022 - Present
+- Architected and deployed an automated LLM extraction service processing over 120,000 monthly invoices with 99.4% field accuracy.
+- Decreased p95 extraction latency from 4.2s to 1.4s by integrating streaming JSON parsers and async worker pools.
+- Mentored 5 mid-level software engineers in clean code patterns and schema-driven microservice contracts.
+
+Beacon Data Technologies | Bellevue, WA
+Software Engineer | August 2018 - February 2022
+- Developed event-driven data ingestion microservices handling 25M daily transactions using Python and Kafka.
+- Reduced database read contention by 40% through Redis caching layer and optimized PostgreSQL query indexing.
+
+KEY PROJECTS:
+- AutoDoc-AI: Open-source developer CLI that extracts structured metadata and OpenAPI 3.1 specifications from legacy Python codebases. Tech: Python, AST, Pydantic. Link: https://github.com/mvance-eng/autodoc-ai
+- AgentMesh: Lightweight orchestration framework for multi-agent tool calling with stateful memory and rollback support. Tech: Python, LangChain, FastAPI.
+
+CERTIFICATIONS:
+- AWS Certified Solutions Architect - Professional (Amazon Web Services, 2023)
+- HashiCorp Certified Terraform Associate (HashiCorp, 2022)
