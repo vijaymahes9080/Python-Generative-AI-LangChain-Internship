@@ -1,0 +1,24 @@
+{
+  "cluster_name": "alpha-compute-prod-01",
+  "region": "us-west-2",
+  "environment": "production",
+  "topology": {
+    "total_worker_nodes": 8,
+    "master_nodes": 3,
+    "cpu_architecture": "arm64",
+    "processor_model": "AWS Graviton3 64-Core",
+    "ram_per_node_gb": 64,
+    "nvme_storage_per_node_tb": 3.84,
+    "gpu_accelerators": {
+      "model": "NVIDIA H100 SXM5",
+      "count_per_node": 2,
+      "vram_gb_per_gpu": 80
+    },
+    "interconnect": "100 Gbps RoCE v2"
+  },
+  "compliance": {
+    "soc2_type2": true,
+    "hipaa": true,
+    "iso27001": true
+  }
+}
