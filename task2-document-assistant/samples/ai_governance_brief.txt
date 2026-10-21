@@ -1,0 +1,14 @@
+ENTERPRISE AI GOVERNANCE & RISK MANAGEMENT POLICY (VERSION 4.2)
+Published: January 2026 | Office of AI Ethics & Compliance
+
+1. EXECUTIVE MANDATE
+All artificial intelligence, machine learning, and retrieval-augmented generation systems deployed within the enterprise must comply with verifiable risk management guidelines. The primary objective is to eliminate ungrounded hallucinations, prevent unauthorized data leakage, and ensure model explainability.
+
+2. RETRIEVAL-AUGMENTED GENERATION (RAG) COMPLIANCE
+All conversational and extractive RAG systems must enforce strict citation grounding. Every factual claim presented to an end user must link to a verified source document chunk, specifying the document title, internal page number, and literal excerpt. If the underlying vector index cannot provide evidence matching at least an 80% relevance threshold, the system is strictly forbidden from extrapolating and must output the canonical fallback notice: "I cannot find sufficient evidence in the uploaded documents to answer this question."
+
+3. ALGORITHMIC AUDITING & PROVENANCE
+Every deployed model must log inference queries, retrieved chunk IDs, and execution timestamps into an immutable audit ledger. Model weights and prompt templates must be versioned in Git repositories with cryptographic commit signing. Automated bias testing against demographic subsets must occur quarterly, and any system exhibiting demographic parity difference greater than 3.5% will be suspended pending remediation.
+
+4. HUMAN-IN-THE-LOOP ESCALATION PROTOCOL
+High-impact decisions—including credit evaluations, medical diagnostic summaries, and employee performance assessments—require mandatory human-in-the-loop (HITL) review. Automated systems may draft preliminary recommendations, but approval workflows cannot execute without explicit digital signature from a designated domain authority within 24 hours.

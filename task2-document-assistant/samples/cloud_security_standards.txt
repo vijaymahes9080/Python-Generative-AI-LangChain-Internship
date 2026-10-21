@@ -1,0 +1,14 @@
+GLOBAL CLOUD INFRASTRUCTURE SECURITY SPECIFICATION (STANDARD SEC-902)
+Effective Date: March 2026 | Cloud Security Operations Council
+
+1. IDENTITY & ACCESS MANAGEMENT (IAM)
+The organization strictly enforces the Principle of Least Privilege across all production VPCs, cloud tenancies, and Kubernetes clusters. Long-lived API access keys are prohibited; all automated pipelines must leverage OpenID Connect (OIDC) federated workload identities with maximum token TTLs of 60 minutes. Multi-factor authentication (MFA) utilizing FIDO2 WebAuthn hardware tokens is mandatory for all administrative identities.
+
+2. CRYPTOGRAPHIC DATA PROTECTION
+Data at rest across all relational databases, block volumes, and object stores must be encrypted using AES-256-GCM or ChaCha20-Poly1305 with customer-managed encryption keys (CMEK). Key rotation must automatically execute every 90 days. All data in transit across internal service meshes and external boundaries must enforce TLS 1.3 with forward secrecy; cipher suites supporting RSA key exchange or CBC-mode ciphers are strictly deprecated and blocked at border ingress proxies.
+
+3. NETWORK ISOLATION & ZERO TRUST ARCHITECTURE
+Production workloads must operate within private subnets without public IPv4 routable addresses. Egress traffic must transit through dedicated inspection firewalls capable of TLS deep-packet inspection and domain name allowlisting. Vector database clusters (e.g. ChromaDB, Milvus) must remain isolated inside dedicated security groups accessible solely over mutual TLS (mTLS) from authorized application service accounts.
+
+4. INCIDENT RESPONSE & DISASTER RECOVERY SLA
+Any detected unauthorized credential access or anomalous data exfiltration triggers a Severity 1 incident. The Incident Response Team must achieve an initial containment response within 15 minutes of alert dispatch. Full cryptographic key invalidation and credential revocation must execute within 30 minutes. Automated backup snapshots must maintain a Recovery Point Objective (RPO) under 5 minutes and a Recovery Time Objective (RTO) under 60 minutes.
